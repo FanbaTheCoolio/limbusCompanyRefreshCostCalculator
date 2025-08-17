@@ -1,6 +1,7 @@
 costMultiplier = 15
 keywordlessCost = 15
 keywordCost = 120
+refreshRequired = 50
 
 def main():
     isActive = True
@@ -23,10 +24,21 @@ def main():
             print("idk how to do it yet ill do it later")
         elif userChoice == "4":
             print("may your sinclairs be many and your heathcliffs few")
-            is_active = False
+            isActive = False
         else:
             print("dude you put the wrong choice in; dont it again")
+def calculateAverageRefreshGoal():
+    print("This is based of using the base refresh")
 
+    print("Number of floors intended to be cleared")
+    numberOfFloors = int(input())
+
+    refreshesRequiredPerFloor = refreshRequired / numberOfFloors
+    costPerFloor = (costMultiplier * refreshesRequiredPerFloor) + keywordlessCost
+
+    print(f"Average refreshes required per floor: {refreshesRequiredPerFloor}")
+    print(f"Average cost per floor: {costPerFloor}")
+        
 def calculatePossibleRefreshAmount():
     moneyAvailable = 0
     isAffordable = True
