@@ -11,7 +11,7 @@ def main():
         glory to project moon
         (1) Calculate Refresh Cost
         (2) Calculate Amount Of Refreshes Possible
-        (3) Weird Average thing
+        (3) Calculate Average Floor Refresh Goal
         (4) Exit
         """)
         userChoice = input()
@@ -21,7 +21,7 @@ def main():
         elif userChoice == "2":
             calculatePossibleRefreshAmount()
         elif userChoice == "3":
-            print("idk how to do it yet ill do it later")
+            calculateAverageRefreshGoal()
         elif userChoice == "4":
             print("may your sinclairs be many and your heathcliffs few")
             isActive = False
@@ -33,9 +33,12 @@ def calculateAverageRefreshGoal():
     print("Number of floors intended to be cleared")
     numberOfFloors = int(input())
 
-    refreshesRequiredPerFloor = refreshRequired / numberOfFloors
-    costPerFloor = (costMultiplier * refreshesRequiredPerFloor) + keywordlessCost
-
+    refreshesRequiredPerFloor = int(refreshRequired / numberOfFloors)
+    costPerFloor = 0
+    for currentRefreshCount in range(refreshesRequiredPerFloor):
+        currentCost = (costMultiplier * currentRefreshCount) + keywordlessCost
+        costPerFloor += currentCost
+ 
     print(f"Average refreshes required per floor: {refreshesRequiredPerFloor}")
     print(f"Average cost per floor: {costPerFloor}")
         
